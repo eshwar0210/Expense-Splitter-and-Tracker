@@ -8,7 +8,7 @@ export const addExpenseService = async (data,setAlert, setAlertMessage) => {
    }catch(err){
         setAlert(true)
         err.response.status === 400 || err.response.status === 401
-        ? setAlertMessage(err.response.data.message) : setAlertMessage("Oops! Something went worng")
+        ? setAlertMessage(err.response.data.message) : setAlertMessage("Oops! Something went wrong")
         return false
    }
 }
@@ -20,7 +20,7 @@ export const getGroupCategoryExpService = async (data, setAlert, setAlertMessage
      }catch(err){
         setAlert(true)
         err.response.status === 400 || err.response.status === 401
-        ? setAlertMessage(err.response.data.message) : setAlertMessage("Oops! Something went worng")
+        ? setAlertMessage(err.response.data.message) : setAlertMessage("Oops! Something went wrong")
         return false
    }
 }
@@ -31,7 +31,7 @@ export const getGroupMonthlyExpService = async (data, setAlert, setAlertMessage)
      }catch(err){
         setAlert(true)
         err.response.status === 400 || err.response.status === 401
-        ? setAlertMessage(err.response.data.message) : setAlertMessage("Oops! Something went worng")
+        ? setAlertMessage(err.response.data.message) : setAlertMessage("Oops! Something went wrong")
         return false
    }
 }
@@ -44,7 +44,7 @@ export const getGroupDailyExpService = async (data, setAlert, setAlertMessage) =
      }catch(err){
         setAlert(true)
         err.response.status === 400 || err.response.status === 401
-        ? setAlertMessage(err.response.data.message) : setAlertMessage("Oops! Something went worng")
+        ? setAlertMessage(err.response.data.message) : setAlertMessage("Oops! Something went wrong")
         return false
    }
 }
@@ -57,7 +57,7 @@ export const getUserExpenseService = async(data, setAlert, setAlertMessage) => {
      }catch(err){
          setAlert(true)
          err.response.status === 400 || err.response.status === 401
-         ? setAlertMessage(err.response.data.message) : setAlertMessage("Oops! Something went worng")
+         ? setAlertMessage(err.response.data.message) : setAlertMessage("Oops! Something went wrong")
          return false
      }
  }
@@ -70,7 +70,7 @@ export const getUserExpenseService = async(data, setAlert, setAlertMessage) => {
      }catch(err){
         setAlert(true)
         err.response.status === 400 || err.response.status === 401
-        ? setAlertMessage(err.response.data.message) : setAlertMessage("Oops! Something went worng")
+        ? setAlertMessage(err.response.data.message) : setAlertMessage("Oops! Something went wrong")
         return false
    }
 }
@@ -83,7 +83,7 @@ export const getUserDailyExpService = async (data, setAlert, setAlertMessage) =>
      }catch(err){
         setAlert(true)
         err.response.status === 400 || err.response.status === 401
-        ? setAlertMessage(err.response.data.message) : setAlertMessage("Oops! Something went worng")
+        ? setAlertMessage(err.response.data.message) : setAlertMessage("Oops! Something went wrong")
         return false
    }
 }
@@ -96,7 +96,7 @@ export const getUserCategoryExpService = async (data, setAlert, setAlertMessage)
      }catch(err){
         setAlert(true)
         err.response.status === 400 || err.response.status === 401
-        ? setAlertMessage(err.response.data.message) : setAlertMessage("Oops! Something went worng")
+        ? setAlertMessage(err.response.data.message) : setAlertMessage("Oops! Something went wrong")
         return false
    }
 }
@@ -108,7 +108,7 @@ export const getRecentUserExpService = async (data, setAlert, setAlertMessage) =
      }catch(err){
           setAlert(true)
           err.response.status === 400 || err.response.status === 401
-          ? setAlertMessage(err.response.data.message) : setAlertMessage("Oops! Something went worng")
+          ? setAlertMessage(err.response.data.message) : setAlertMessage("Oops! Something went wrong")
           return false
      }
 }
@@ -119,7 +119,7 @@ export const getExpDetailsService = async (data, setAlert, setAlertMessage) => {
      }catch(err){
           setAlert(true)
           err.response.status === 400 || err.response.status === 401
-          ? setAlertMessage(err.response.data.message) : setAlertMessage("Oops! Something went worng")
+          ? setAlertMessage(err.response.data.message) : setAlertMessage("Oops! Something went wrong")
           return false
      }
 }
@@ -132,7 +132,7 @@ export const editExpenseService = async (data,setAlert, setAlertMessage) => {
      }catch(err){
           setAlert(true)
           err.response.status === 400 || err.response.status === 401
-          ? setAlertMessage(err.response.data.message) : setAlertMessage("Oops! Something went worng")
+          ? setAlertMessage(err.response.data.message) : setAlertMessage("Oops! Something went wrong")
           return false
      }
   }
@@ -144,7 +144,7 @@ export const editExpenseService = async (data,setAlert, setAlertMessage) => {
      }catch(err){
           setAlert(true)
           err.response.status === 400 || err.response.status === 401
-          ? setAlertMessage(err.response.data.message) : setAlertMessage("Oops! Something went worng")
+          ? setAlertMessage(err.response.data.message) : setAlertMessage("Oops! Something went wrong")
           return false
      }
   }

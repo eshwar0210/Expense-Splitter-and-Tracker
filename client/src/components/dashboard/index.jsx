@@ -59,11 +59,14 @@ export default function Dashboard() {
             {loading ? <Loading /> :
                 <Grid container spacing={3}>
                     <Grid item xs={12} md={8}>
+
+                        {/* welcome message */}
                         <Grid container spacing={5}>
                             <Grid item xs={12}>
                                 <WelcomeMessage />
                             </Grid>
 
+                        {/* new user so ask to create a group */}
                             {newUser ?
                                 <Grid item xs={12}>
                                     <Grid container
@@ -101,9 +104,6 @@ export default function Dashboard() {
                                     <Grid item xs={12} md={12}>
                                         <CategoryExpenseChart />
                                     </Grid>
-                                    {/* <Grid item xs={12} md={6}>
-                                <CategoryExpenseChart />
-                            </Grid> */}
                                 </>
                             }
                         </Grid>
