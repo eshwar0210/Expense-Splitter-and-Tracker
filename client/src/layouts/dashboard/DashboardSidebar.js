@@ -77,7 +77,7 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
         <Avatar src={gravatarUrl(user?.emailId, {size: 200, default: dataConfig.USER_DEFAULT_LOGO_URL})} alt="photoURL" />}
             <Box sx={{ ml: 2 }}>
               <Typography variant="subtitle2" sx={{ color: 'text.primary' }}>
-                {user?.firstName} {user?.lastName}
+                {user?.userName}
               </Typography>
               {/* <Typography variant="span" fontSize={12} sx={{ color: 'text.secondary' }}>
                 {user?.emailId}

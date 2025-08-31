@@ -30,19 +30,18 @@ export default function RegisterForm() {
     emailId: Yup.string().email('Email must be a valid email address').required('Email is required'),
     password: Yup.string().required('Password is required')
     .min(8, 'Password should be 8 characters minimum'),
-    firstName: Yup.string().required('First Name is required')
+    userName: Yup.string().required('User Name is required')
   });
 
   const formik = useFormik({
     initialValues: {
-      firstName: '',
-      lastName: '',
+      userName: '',
       emailId: '',
       password: '',
       remember: true,
     },
     validationSchema: RegisterSchema,
-    onSubmit: async () => {
+    onSubmit: async (values) => {
       //User Register Service call - Upon success user is redirected to dashboard 
       //Register fail snackbar displays error
       await register(values, setShowAlert, setAlertMessage)
@@ -75,27 +74,18 @@ export default function RegisterForm() {
               {alertMessage}
              </Alert>
             )}
-            <Stack spacing={3} direction="row"
-            alignItems="center" justifyContent="space-between"
-            >
-            <TextField
-              name="firstName"
-              fullWidth
-              type="text"
-              label="First Name"
-              {...getFieldProps('firstName')}
-              error={Boolean(touched.firstName && errors.firstName)}
-              helperText={touched.firstName && errors.firstName} />
 
-              <TextField
-              name="lastName"
+            <TextField
+              name="userName"
               fullWidth
               type="text"
-              label="Last Name"
-              {...getFieldProps('lastName')}
-              error={Boolean(touched.lastName && errors.lastName)}
-              helperText={touched.lastName && errors.lastName} />
-            </Stack>
+              label="UserName"
+              {...getFieldProps('userName')}
+              error={Boolean(touched.userName && errors.userName)}
+              helperText={touched.userName && errors.userName} />
+
+             
+            
 
             <TextField
               name="emailId"

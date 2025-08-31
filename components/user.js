@@ -15,21 +15,32 @@ API: /users/v1/register
 exports.userReg = async (req, res) => {
     try {
         //Checking email Id exist in DB
+        // console.log(req.body);
         const user = await model.User.findOne({
             emailId: req.body.emailId
         })
         //If email ID present in database thows error and retuen message
+        
         if (user) {
             const err = new Error("Email Id already present please login!")
             err.status = 400
             throw err
-        } else {
+        } 
+        const userbyid = await model.User.findOne({
+            userName  : req.body.userName
+        })
+        if(userbyid){
+            const err = new Error("Try a different user name!")
+            err.status = 400
+            throw err
+        }
+        else {
             //Accepts the inputs and create user model form req.body
             var newUser = new model.User(req.body)
             //Performing validations
             if (validator.emailValidation(newUser.emailId) &&
                 validator.passwordValidation(newUser.password) &&
-                validator.notNull(newUser.firstName)) {
+                validator.notNull(newUser.userName)) {
                 //Bcrypt password encription
                 const salt = await bcrypt.genSalt(10);
                 newUser.password = await bcrypt.hash(newUser.password, salt)
@@ -81,8 +92,7 @@ exports.userLogin = async (req, res) => {
                 message: "User Login Success",
                 userId: user.id,
                 emailId: user.emailId,
-                firstName: user.firstName,
-                lastName: user.lastName,
+                userName : user.userName,
                 accessToken
             })
         }
