@@ -19,7 +19,10 @@ import FavouriteGroups from "./FavouriteGroups"
 
 export default function Dashboard() {
     const [loading, setLoading] = useState(true)
-    const profile = JSON.parse(localStorage.getItem("profile"))
+    const profile = JSON.parse(localStorage.getItem("profile") || "{}");
+    if (!profile.emailId) {
+        window.location.href = configData.LOGIN_URL;
+    }
     const [alert, setAlert] = useState(false);
     const [alertMessage, setAlertMessage] = useState('');
     const [userExp, setUserExp] = useState()
@@ -27,23 +30,29 @@ export default function Dashboard() {
     
 
     useEffect(() => {
-        const getUserDetails = async () => {
-            setLoading(true);
-            const userIdJson = {
-                user: profile.emailId
-            }
-            const response_expense = await getUserExpenseService(userIdJson, setAlert, setAlertMessage)
-            setUserExp(response_expense.data);
-            const response_group = await getUserGroupsService(profile)
-            if (response_group.data.groups.length == 0)
-                setNewUser(true)
-            setLoading(false)
+    let isMounted = true;
 
-        }
+    const getUserDetails = async () => {
+            try {
+                setLoading(true);
+                const userIdJson = { user: profile.emailId };
+                const response_expense = await getUserExpenseService(userIdJson, setAlert, setAlertMessage);
+                if (isMounted) setUserExp(response_expense.data);
+
+                const response_group = await getUserGroupsService(profile);
+                if (isMounted && response_group?.data?.groups?.length === 0) setNewUser(true);
+            } catch (err) {
+                setAlert(true);
+                setAlertMessage("Failed to fetch dashboard data");
+            } finally {
+                if (isMounted) setLoading(false);
+            }
+        };
+
         getUserDetails();
 
-
-    }, [])
+        return () => { isMounted = false };
+    }, []);
 
     return (
         <Container maxWidth={'xl'}>
@@ -59,7 +68,7 @@ export default function Dashboard() {
                                 <Grid item xs={12}>
                                     <Grid container
                                         direction="column"
-                                        style={{
+                                        sx={{
                                             display: 'flex',
                                             justifyContent: 'center',
                                             alignItems: 'center',
