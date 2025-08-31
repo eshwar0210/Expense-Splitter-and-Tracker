@@ -8,7 +8,6 @@ import { Card, Link, Container, Typography, Stack, Box } from '@mui/material';
 
 // hooks
 import useResponsive from '../../theme/hooks/useResponsive';
-import Logo from '../Logo';
 
 import RegisterForm from "./RegisterForm"
 import Copyright from '../Copyright';
@@ -88,7 +87,7 @@ export default function Login() {
                 Get started absolutely free.
             </Typography>
 
-            <Typography sx={{ color: 'text.secondary', mb: 5 }}>Open Source, Group expense splitting app!</Typography>
+            <Typography sx={{ color: 'text.secondary', mb: 5 }}> Group expense splitting app!</Typography>
 
             <RegisterForm />
             {/* <AuthSocial />*/}
