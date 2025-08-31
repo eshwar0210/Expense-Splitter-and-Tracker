@@ -10,9 +10,15 @@ import { register } from '../../services/auth';
 
 import useResponsive from '../../theme/hooks/useResponsive';
 
+import {Link} from '@mui/material';
+
+// import { Link as RouterLink } from 'react-router-dom';
+// import {FormControlLabel} from '@mui/material';
+// import {Checkbox} from '@mui/material';
 // ----------------------------------------------------------------------
 
 export default function RegisterForm() {
+
   const smUp = useResponsive('up', 'sm');
 
   const [showAlert, setShowAlert] = useState(false);
